@@ -27,14 +27,14 @@ placed in the directory that the previous command was run. The directory contain
 Nanosvg_afl has been tested in Fedora 25 and Linux Mint 18 both in 64 bit. There are
 some prerequisites before running our scripts.
 
-<i>For Fedora the following repositories are needed: </i>
+<i>For Fedora the following packages are needed: </i>
 
 1) `sudo dnf install afl-fuzz` --> installs the afl
 2) `sudo dnf install glibc-devel.i686`
 3) `sudo dnf install libstdc++-devel.i686`
 4) `sudo dnf install libasan.i686`
 
-<i>For Linux Mint the following Ubuntu repositories are needed:</i>
+<i>For Linux Mint the following Ubuntu packages are needed:</i>
 
 1) `sudo apt-get install afl-fuzz`  --> installs the afl
 2) `sudo apt-get  install linux-libc-dev:i386`
