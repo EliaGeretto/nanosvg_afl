@@ -2,7 +2,7 @@
 <b><h2>Synopsis</h2></b>
 
 Nanosvg_afl is a project which its target is to fuzz the <a href="https://github.com/memononen/nanosvg">nanosvg project </a> and find crashes,
-triggered by bugs. The fuzzing is performed with <a href="http://lcamtuf.coredump.cx/afl">afl-fuzz </a>. After finding the crashes, we minimized them and
+triggered by bugs. The fuzzing is performed with <a href="http://lcamtuf.coredump.cx/afl">afl-fuzz </a>. fter finding the crashes, we minimized them and
 then we verify that these crashes are not false positives.
 
 <b><h2>Motivation</h2></b>
@@ -20,11 +20,11 @@ terminal one should run:
 
 <p>After the successful git clone, a directory with name nanosvg_afl should have been
 placed in the directory that the previous command was run. The directory contains:<br>
-2 scripts: fuzz.sh and minimize.sh<br>
+3 scripts: fuzz.sh, minimize.sh and verify.sh<br>
 2 directories: src and tests<br>
 1 make file<br>
 
-Sdb_afl has been tested in Fedora 25 and Linux Mint 18 both in 64 bit. There are
+Nanosvg_afl has been tested in Fedora 25 and Linux Mint 18 both in 64 bit. There are
 some prerequisites before running our scripts.
 
 <i>For Fedora the following repositories are needed: </i>
@@ -47,22 +47,19 @@ some prerequisites before running our scripts.
 
 <b><h2>Instructions for correct running</h2></b>
 
-<p>Initially, in a Linux terminal from inside the directory the command "make" should
-be run. If all the required libraries are installed the svg_parcer.c, placed in
-the src directory, will be compiled with afl-gcc in 32 bits, with a limit of
-800MB RAM and with ASAN instrumentation. The successful output of the make is
-the compiled nanosvg software with name svg_parser.
-
-<p>For a fast reproduction of our work, two scripts were built. Each
-script is responsible for a different operation. First, the fuzzing.sh should
-be run and the fuzzing will be started. As a test case the afl will choose the
+<p>For a fast reproduction of our work, three scripts were built. Each of the three
+scripts is responsible for a different operation. First, the fuzzing.sh should
+be run. If all the required libraries are installed the sdb project, placed in
+the sdb directory, will be compiled with afl-gcc in 32 bits, with a limit of
+800MB RAM and with ASAN instrumentation.Then the fuzzing will be started. As a test case the afl will choose the
 svg file inside the test directory.
 <i><b>NOTE:</b> afl may ask you to run some extra commands before starting the fuzzing. Just follow afl's instructions.</i>
 <p>When the fuzzing process is terminated (it is suggested after at least 1 cycle)
 the minimize.sh script should be run. This script will minimize the afl findings
 and will delete the duplicates. The minimize script is based on the "afl-tmin"
 command. All the minimized crashes will be saved in a new directory called
-minimized. Both scripts should be run
+minimized. Finally, the verify.sh script should be run in order to validate that
+the minimized crashes found are not false positives.All scripts should be run
 inside the directory nanosvg_afl with the following command:
 
 `./script_name`
