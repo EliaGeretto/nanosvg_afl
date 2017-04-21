@@ -16,10 +16,11 @@ One can get nanosvg_afl easily by just cloning our project. Specifically, in a L
 
 `git clone --recursive https://github.com/EliaGeretto/nanosvg_afl.git`
 
-After the successful git clone, a directory with name nanosvg_afl should have been placed in the directory that the previous command was run. The directory contains:  
-3 scripts: fuzz.sh, minimize.sh and verify.sh  
-2 directories: src and tests  
-1 make file  
+After the successful git clone, a directory with name nanosvg_afl should have been placed in the directory that the previous command was run. The directory contains: 
+
+* 3 scripts: fuzz.sh, minimize.sh and verify.sh  
+* 2 directories: src and tests  
+* 1 make file  
 
 Nanosvg_afl has been tested in Fedora 25 and Linux Mint 18 both in 64 bit. There are some prerequisites before running our scripts. 
 _For Fedora the following packages are needed:_ 
